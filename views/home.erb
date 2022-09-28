@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日はこれだけ！</title>
+</head>
+
+<body>
+    <!--ここにカレンダー作る-->
+    
+    <!--ここに一覧表示作る-->
+    <div>
+        <table>
+            <thread>
+                <tr>
+                    <th>タイトル</th>
+                </tr>
+            </thread>
+            <tbody>
+                <% @tasks.each do |task| %>
+                    <tr>
+                        <td><%= CGI.escapeHTML(task.title) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <a href="/tasks/new">新規作成</a>
+    </div>
+    
+    <!--新規タスク登録のモーダル表示-->
+</body>
+</html>
