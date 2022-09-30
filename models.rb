@@ -25,7 +25,5 @@ class Task < ActiveRecord::Base
         presence: true
     validates :color,
         presence: true
-    validates :importance,
-        presence: true
     belongs_to :user
 end

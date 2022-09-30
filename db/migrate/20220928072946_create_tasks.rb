@@ -9,7 +9,6 @@ class CreateTasks < ActiveRecord::Migration[6.1]
       t.integer :color
       t.boolean :completed
       t.references :user
-      t.integer :integer
       t.timestamps null: false
     end
   end

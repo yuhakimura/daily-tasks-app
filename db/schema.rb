@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2022_09_28_072946) do
     t.integer "color"
     t.boolean "completed"
     t.bigint "user_id"
-    t.integer "integer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_tasks_on_user_id"
