@@ -18,10 +18,10 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
       headerToolbar: {
         left: 'prev,next today',
-        center: 'title'
+        center: 'title',
       },
       locale: 'ja',
-      initialDate: '2020-09-12',
+      initialDate: '2022-10-01',
       navLinks: false, // can click day/week names to navigate views
       businessHours: true, // display business hours
       editable: true,
@@ -32,16 +32,21 @@
             title: '<%= task.title %>',
             start: '<%= task.date_start %>',
             end: '<%= task.date_end %>',
-            color: '<% if task.color == 1 %>
-                      <%= #f9dcf3 %>
-                    
-                  <% end %>'
+            <% if task.color == 1 %>
+              color: '#f970e0'
+            <% elsif task.color == 2 %>
+              color: '#f7a348'
+            <% elsif task.color == 3 %>
+              color: '#ddd937'
+            <% elsif task.color == 4 %>
+              color: '#73f973'
+            <% else %>
+              color: '#47cbea'
+            <% end %>
           },
         <% end %>
       ]
     });
-    
-    
 
     calendar.render();
   });
@@ -69,34 +74,38 @@
 </head>
 
 <body>
-    <!--ここにカレンダー作る-->
-    <div>
-        <div id="calendar"></div>
-    </div>
+  <!--ヘッダー部-->
+  
+  <!--ここにカレンダー作る-->
+  <div>
+      <div id="calendar"></div>
+  </div>
     
-    <!--ここに一覧表示作る-->
-    <div>
-        <table>
-            <thread>
+  <!--ここに一覧表示作る-->
+  <div>
+      <table>
+          <thread>
+              <tr>
+                  <th>タイトル</th>
+                  <th>1日の分量</th>
+              </tr>
+          </thread>
+          <tbody>
+            <% @tasks.each do |task| %>
+              <% if (task.date_start..task.date_end).include? Date.today %>
                 <tr>
-                    <th>タイトル</th>
-                    <th>1日の分量</th>
+                  <td><%= CGI.escapeHTML(task.title).to_s %></td>
+                  <td><%= task.splited_task %></td>
                 </tr>
-            </thread>
-            <tbody>
-              <% @tasks.each do |task| %>
-                <% if (task.date_start..task.date_end).include? Date.today %>
-                  <tr>
-                    <td><%= CGI.escapeHTML(task.title).to_s %></td>
-                    <td><%= task.splited_task %></td>
-                  </tr>
-                <% end %>
               <% end %>
-            </tbody>
-        </table>
-        <a href="/tasks/new">新規作成</a>
-    </div>
+            <% end %>
+          </tbody>
+      </table>
+  </div>
+  
+  <!--新規作成ボタン-->
+  <a href="/tasks/new">新規作成</a>
     
-    <!--新規タスク登録のモーダル表示-->
+    <!--新規タスク登録のモーダル表示（できたら）-->
 </body>
 </html>
