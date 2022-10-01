@@ -58,20 +58,26 @@
 <!--ヘッダー部-->
 <header class="header">
   <ul class="nav">
-    <li class="nav-content">ゆは</li>
-    <li class="nav-content"><a href="/signout">ログアウト</li>
+    <li class="nav-content"><%= current_user.name %></li>
+    <li class="nav-content"><a href="/signout">ログアウト</a></li>
   </ul>
 </header>
 
 <body>
   <main>
     <!--ここにカレンダー作る-->
-    <div>
+    <div class="calendar">
         <div id="calendar"></div>
     </div>
       
     <!--ここに一覧表示作る-->
-    <div>
+    <div class="tables">
+      
+      <div class="tasks-title">
+        <h3 class="tasks-title-text"><%= Date.today.strftime("%Y年 %m月 %d日") %>のタスク</h3>
+        <div class="line"></div>
+      </div>
+      
       <div class="table-all">
         <div class="table-head">
           <p class="table-head-title">タイトル</p>

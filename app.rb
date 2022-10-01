@@ -6,7 +6,16 @@ require './models.rb'
 enable :sessions
 
 get '/' do
-  erb :index
+    if current_user.nil?
+        redirect '/top'
+    else
+        @tasks = current_user.tasks
+        erb :home
+    end
+end
+
+get '/top' do
+    erb :index
 end
 
 get '/signin' do
@@ -22,7 +31,7 @@ post '/signin' do
     if user && user.authenticate(params[:password])
         session[:user] = user.id
     end
-    redirect '/home'
+    redirect '/'
 end
 
 post '/signup' do
@@ -31,27 +40,18 @@ post '/signup' do
     if user.persisted?
         session[:user] = user.id
     end
-    redirect '/home'
+    redirect '/'
 end
 
 get '/signout' do
     session[:user] = nil
-    redirect '/'
+    redirect '/top'
 end
 
 helpers do
     def current_user
         User.find_by(id: session[:user])
     end
-end
-
-get '/home' do
-    if current_user.nil?
-        @tasks = Task.none
-    else
-        @tasks = current_user.tasks
-    end
-    erb :home
 end
 
 get '/tasks/new' do
@@ -61,5 +61,5 @@ end
 post '/tasks' do
     current_user.tasks.create(title: params[:title], date_start: params[:date_start], date_end: params[:date_end],
                                 quantity: params[:quantity], quantity_finished: 0, color: params[:color])
-    redirect '/home'
+    redirect '/'
 end
