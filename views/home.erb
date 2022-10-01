@@ -61,14 +61,18 @@
             <thread>
                 <tr>
                     <th>タイトル</th>
+                    <th>1日の分量</th>
                 </tr>
             </thread>
             <tbody>
-                <% @tasks.each do |task| %>
-                    <tr>
-                        <td><%= CGI.escapeHTML(task.title) %></td>
-                    </tr>
+              <% @tasks.each do |task| %>
+                <% if (task.date_start..task.date_end).include? Date.today %>
+                  <tr>
+                    <td><%= CGI.escapeHTML(task.title).to_s %></td>
+                    <td><%= CGI.escapeHTML(task.splited_task) %></td>
+                  </tr>
                 <% end %>
+              <% end %>
             </tbody>
         </table>
         <a href="/tasks/new">新規作成</a>

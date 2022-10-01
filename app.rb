@@ -52,9 +52,9 @@ get '/home' do
         @tasks = current_user.tasks
     end
     
-    @tasks.each do |task|
-        if (task.date_start..task.date_end).include? Date.today 
-            task.id
+    # @tasks.each do |task|
+    #     if (task.date_start..task.date_end).include? Date.today 
+    #         task.id
     erb :home
 end
 

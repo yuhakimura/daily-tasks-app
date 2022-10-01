@@ -26,4 +26,12 @@ class Task < ActiveRecord::Base
     validates :color,
         presence: true
     belongs_to :user
+    
+    def required_days
+        return (date_end - date_start).to_i + 1
+    end
+    
+    def splited_task
+        return (quantity / required_days).to_s
+    end
 end
