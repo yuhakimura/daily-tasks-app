@@ -20,17 +20,36 @@
         left: 'prev,next today',
         center: 'title'
       },
+      locale: 'ja',
       initialDate: '2020-09-12',
       navLinks: false, // can click day/week names to navigate views
       businessHours: true, // display business hours
       editable: true,
       selectable: true,
+      events: [
+        <% @tasks.each do |task| %>
+          {
+            title: '<%= task.title %>',
+            start: '<%= task.date_start %>',
+            end: '<%= task.date_end %>',
+            color: '<% if task.color == 1 %>
+                      <%= #f9dcf3 %>
+                    
+                  <% end %>'
+          },
+        <% end %>
+      ]
     });
+    
+    
 
     calendar.render();
   });
+  
+  
 
 </script>
+<script src="locales/locales-all.js"></script>
 <style>
 
   body {
@@ -69,7 +88,7 @@
                 <% if (task.date_start..task.date_end).include? Date.today %>
                   <tr>
                     <td><%= CGI.escapeHTML(task.title).to_s %></td>
-                    <td><%= CGI.escapeHTML(task.splited_task) %></td>
+                    <td><%= task.splited_task %></td>
                   </tr>
                 <% end %>
               <% end %>
