@@ -77,11 +77,11 @@ main{
     width: 80px;
     height: 3px;
     background-color: #84b5cf;
-    margin: 5px auto 5px;
+    margin: 10px auto 10px;
 }
 .table-head-title{
     display: inline-block;
-    width: 70%;
+    width: 50%;
     font-weight: bold;
     text-align: center;
 }
@@ -93,8 +93,30 @@ main{
     text-align: center;
 }
 
+.table-head-importance{
+    display: inline-block;
+    width: 10%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-head-edit{
+    display: inline-block;
+    width: 6%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-head-delete{
+    display: inline-block;
+    width: 6%;
+    font-weight: bold;
+    text-align: center;
+}
+
 .table-content{
     display: flex;
+    justify-content: space-around;
     border: solid;
     border-width: 1px 1px 1px 10px;
     margin: 5px 0px;
@@ -105,16 +127,41 @@ main{
     margin: 5px 0px;
 }
 
+.table-content a{
+    margin: 5px 0px;
+}
+
 .table-content-title{
     display: inline-block;
-    width: 70%;
+    width: 50%;
     padding: 1px 0px 1px 10px;
 }
 
 .table-content-weight{
     display: inline-block;
-    width: 30%;
+    width: 25%;
+    padding: 1px 0px 1px 0px;
+}
+
+.table-content-importance{
+    display: inline-block;
+    width: 10%;
+    padding: 1px 0px 1px 0px;
+    color: #f7415b;
+}
+
+.table-content-edit{
+    display: inline-block;
+    width: 6%;
+    padding: 1px 0px 1px 0px;
+    color: #e5e5e5;
+}
+
+.table-content-delete{
+    display: inline-block;
+    width: 6%;
     padding: 1px 10px 1px 0px;
+    color: #e5e5e5;
 }
 
 /*新規作成ボタンに関するcss*/

@@ -25,6 +25,11 @@ class Task < ActiveRecord::Base
         presence: true
     validates :color,
         presence: true
+    validates :importance,
+        presence: true
+    validates :unit,
+        presence: true,
+        length: {in: 1..5}
     belongs_to :user
     
     def required_days

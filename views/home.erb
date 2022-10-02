@@ -28,7 +28,7 @@
         events: [
           <% @tasks.each do |task| %>
             {
-              title: '<%= task.title %> / 1日の分量：<%= task.splited_task %>',
+              title: '<%= task.title %> / 1日の分量：<%= task.splited_task %><%= task.unit %>',
               start: '<%= task.date_start %>',
               end: '<%= task.date_end %>',
               <% if task.color == 1 %>
@@ -79,10 +79,13 @@
       </div>
       
       <div class="table-all">
-        <div class="table-head">
-          <p class="table-head-title">タイトル</p>
-          <p class="table-head-weight">1日の分量</p>
-        </div>
+        <!--<div class="table-head">-->
+        <!--  <p class="table-head-title">タイトル</p>-->
+        <!--  <p class="table-head-weight">1日の分量</p>-->
+        <!--  <p class="table-head-importance">重要度</p>-->
+        <!--  <p class="table-head-edit">編集</p>-->
+        <!--  <p class="table-head-delete">削除</p>-->
+        <!--</div>-->
         <div class="table-content-all">
           <% @tasks.each do |task| %>
             <% if (task.date_start..task.date_end).include? Date.today %>
@@ -100,7 +103,18 @@
                             border-color: #47cbea;
                           <% end %>">
                 <p class="table-content-title"><%=CGI.escapeHTML(task.title).to_s %></p>
-                <p class="table-content-weight"><%= task.splited_task %></p>
+                <p class="table-content-weight"><%= task.splited_task %><%= task.unit %></p>
+                <p class="table-content-importance">
+                  <% if task.importance == 1 %>
+                    <i class="fa-solid fa-exclamation"></i>
+                  <% elsif task.importance == 2 %>
+                    <i class="fa-solid fa-exclamation"></i><i class="fa-solid fa-exclamation"></i>
+                  <% else %>
+                    <i class="fa-solid fa-exclamation"></i><i class="fa-solid fa-exclamation"></i><i class="fa-solid fa-exclamation"></i>
+                  <% end %>
+                </p>
+                <a href="/tasks/<%= task.id %>/edit" class="table-content-edit"><i class="fa-solid fa-pen"></i></a>
+                <a href="/tasks/<%= task.id %>/delete" class="table-content-delete"><i class="fa-solid fa-trash"></i></a>
               </div>
             <% end %>
           <% end %>

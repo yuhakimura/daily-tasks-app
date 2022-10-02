@@ -1,0 +1,1 @@
+Task.all.update_all(unit: 'ページ', importance: 1)

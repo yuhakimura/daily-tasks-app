@@ -60,6 +60,33 @@ end
 
 post '/tasks' do
     current_user.tasks.create(title: params[:title], date_start: params[:date_start], date_end: params[:date_end],
-                                quantity: params[:quantity], quantity_finished: 0, color: params[:color])
+                                quantity: params[:quantity], unit: params[:unit], quantity_finished: 0, color: params[:color],
+                                importance: params[:importance])
+    redirect '/'
+end
+
+get '/tasks/:id/delete' do
+    task = Task.find(params[:id])
+    task.destroy
+    redirect '/'
+end
+
+get '/tasks/:id/edit' do
+    @task = Task.find(params[:id])
+    erb :edit
+end
+
+post '/tasks/:id' do
+    task = Task.find(params[:id])
+    
+    task.title = params[:title]
+    task.date_start = params[:date_start]
+    task.date_end = params[:date_end]
+    task.quantity = params[:quantity]
+    task.unit = params[:unit]
+    task.quantity_finished = 0
+    task.color = params[:color]
+    task.importance = params[:importance]
+    task.save
     redirect '/'
 end
