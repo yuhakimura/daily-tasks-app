@@ -4,16 +4,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/assets/css/reset.css" rel="stylesheet">
+  <link href="/assets/css/signin_and_signup.css" rel="stylesheet">
   <title>タイトル</title>
 </head>
-<body>
-  <% unless session[:user] %>
-    <a href="/signin">ログイン</a>
-    <a href="/signup">新規登録</a>
-    <h2>未ログイン</h2>
-  <% else %>
-    <a href="/signout">ログアウト</a>
-    <h2><%= User.find(session[:user]).name %>としてログイン</h2>
-  <% end %>
-</body>
+  
+  <!--ヘッダー部-->
+  <header class="header">
+    <p class="header-text">未ログイン</p>
+  </header>
+
+  <body>
+    <div class="container">
+      <h1>今日はこれだけ！</h1>
+      <div class="buttons">
+        <a href="/signin" class="btn-signin">ログイン</a>
+        <a href="/signup" class="btn-signup">新規登録</a>
+      </div>
+    </div>
+  </body>
+
 </html>

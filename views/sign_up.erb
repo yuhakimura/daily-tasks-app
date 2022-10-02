@@ -1,7 +1,41 @@
-<form action="/signup" method="post">
-    <input type="text" name="mail" placeholder="メールアドレス"><br>
-    <input type="text" name="name" placeholder="名前"><br>
-    <input type="password" name="password" placeholder="パスワード"><br>
-    <input type="password" name="password_confirmation" placeholder="パスワードの確認"><br>
-    <input type="submit" value="新規登録">
-</form>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="/assets/css/reset.css" rel="stylesheet">
+        <link href="/assets/css/signin_and_signup.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
+        <title>今日はこれだけ！</title>
+    </head>
+    
+    <body>
+        
+        <!--ヘッダー部-->
+        <header class="header">
+            <p class="header-text">新規登録</p>
+        </header>
+        
+        <!--新規登録-->
+        <div class="container signup">
+            <div class="forms">
+                <form action="/signup" method="post">
+                    <div class="forms-input">
+                        <p class="form-head">メールアドレス</p>
+                        <input type="text" name="mail" placeholder="メールアドレス" class="m-form-text"><br>
+                        <p class="form-head">名前</p>
+                        <input type="text" name="name" placeholder="名前" class="m-form-text"><br>
+                        <p class="form-head">パスワード</p>
+                        <input type="password" name="password" placeholder="パスワード" class="m-form-text"><br>
+                        <p class="form-head">パスワード（再入力）</p>
+                        <input type="password" name="password_confirmation" placeholder="もう一度入力してください" class="m-form-text"><br>
+                    </div>
+                    <input type="submit" value="新規登録" class="m-form-submit-button">
+                </form>
+            </div>
+        </div>
+        
+    </body>
+</html>
