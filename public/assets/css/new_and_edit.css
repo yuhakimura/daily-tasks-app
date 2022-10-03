@@ -1,0 +1,101 @@
+/*全てに適用するcss*/
+*{
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+/*ヘッダーに関するcss*/
+
+.header{
+    width: 100vw;
+    height: 50px;
+    background-color: #84b5cf;
+    z-index: 100;
+    position: fixed;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #fff;
+    line-height: 50px;
+    padding: 0 15px;
+}
+
+.container{
+    text-align: center;
+    background-color: #f8f9ea;
+    height: 100vh;
+    padding-top: 60px;
+}
+
+.forms{
+    text-align: center;
+    width: 30vw;
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+/*入力部*/
+
+.forms-input{
+    text-align: left;
+}
+
+.forms p{
+    text-align: left;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.m-form-text {
+    height: 2.4em;
+    width: 100%;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+}
+
+::placeholder{
+    color: #e5e5e5;
+}
+
+.m-form-text:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+
+/*submitボタン*/
+.m-form-submit-button {
+    display: inline-block;
+    width: 25%;
+    min-width: 200px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #84b5cf;
+    color: #fff;
+    font-weight: bold;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.m-form-submit-button:hover {
+    filter: brightness(80%);
+}
+
+.m-form-submit-button:focus {
+    outline: 0;
+    background-color: #000;
+    border: 2px solid rgb(33, 150, 243);
+}

@@ -30,13 +30,20 @@ post '/signin' do
     user = User.find_by(mail: params[:mail])
     if user && user.authenticate(params[:password])
         session[:user] = user.id
+        redirect '/'
+    else
+        redirect '/signin'
     end
-    redirect '/'
 end
 
 post '/signup' do
-    user = User.create(mail: params[:mail], name: params[:name], password: params[:password],
-                        password_confirmation: params[:password_confirmation])
+    if params[:password] == params[:password_confirmation]
+        user = User.create(mail: params[:mail], name: params[:name], password: params[:password],
+                            password_confirmation: params[:password_confirmation])
+    else
+        redirect '/signup'
+    end
+    
     if user.persisted?
         session[:user] = user.id
     end

@@ -6,32 +6,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/assets/css/reset.css">
   <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/new_and_edit.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" href="/assets/img/la4_original_icon.ico">
   <title>今日はこれだけ！</title>
 </head>
 
 <body>
+    
+    <!--ヘッダー部-->
+    <header class="header">
+      <ul class="nav">
+        <li class="nav-content"><%= current_user.name %></li>
+        <li class="nav-content"><a href="/signout">ログアウト</a></li>
+      </ul>
+    </header>
 
-<div>
-    <form action="/tasks" method="post">
-        <input type="text" name="title" placeholder="タイトル"><br>
-        <input type="date" name="date_start" placeholder="開始日を入力"><br>
-        <input type="date" name="date_end" placeholder="終了日を入力"><br>
-        <input type="text" name="quantity" placeholder="タスクの総量（数字）">
-        <input type="text" name="unit" placeholder="単位"><br>
-        <input type="radio" name="color" value="1">ピンク
-        <input type="radio" name="color" value="2">オレンジ
-        <input type="radio" name="color" value="3">黄色
-        <input type="radio" name="color" value="4">黄緑
-        <input type="radio" name="color" value="5">水色<br>
-        <input type="radio" name="importance" value="1">普通
-        <input type="radio" name="importance" value="2">重要
-        <input type="radio" name="importance" value="3">超重要<br>
-        <input type="submit" value="登録">
-    </form>
-</div>
+    <div class="container">
+        <div class="forms">
+            <form action="/tasks" method="post">
+                <div class="forms-input">
+                    <p class="form-head">タイトル</p>
+                    <input type="text" name="title" placeholder="タイトル" class="m-form-text"><br>
+                    <p class="form-head">タスクの開始日</p>
+                    <input type="date" name="date_start" placeholder="開始日を入力"><br>
+                    <p class="form-head">タスクの終了日</p>
+                    <input type="date" name="date_end" placeholder="終了日を入力"><br>
+                    <p class="form-head">タスクの量</p>
+                    <input type="text" name="quantity" placeholder="タスクの総量（数字）" class="m-form-text">
+                    <input type="text" name="unit" placeholder="単位" class="m-form-text"><br>
+                    <p class="form-head">色</p>
+                    <ul style="display: flex; list-style: none;">
+                        <li>
+                            <label for="color-option-1">
+                                <input type="radio" name="color" id="color-option-1" value="1">
+                                ピンク
+                            </label>
+                        </li>
+                        <li>
+                            <label for="color-option-2">
+                                <input type="radio" name="color" id="color-option-2" value="2">
+                                オレンジ
+                            </label>
+                        </li>
+                        <li>
+                            <label for="color-option-3">
+                                <input type="radio" name="color" id="color-option-3" value="3">
+                                黄色
+                            </label>
+                        </li>
+                        <li>
+                            <label for="color-option-4">
+                                <input type="radio" name="color" id="color-option-4" value="4">
+                                黄緑
+                            </label>
+                        </li>
+                        <li>
+                            <label for="color-option-5">
+                                <input type="radio" name="color" id="color-option-5" value="5">
+                                水色
+                            </label>
+                        </li>
+                    </ul>
+                    <p class="form-head">重要度</p>
+                    <ul style="display: flex; list-style: none;">
+                        <li>
+                            <label for="importance-option-1">
+                                <input type="radio" name="importance" id="importance-option-1" value="1">
+                                普通
+                            </label>
+                        </li>
+                        <li>
+                            <label for="importance-option-2">
+                                <input type="radio" name="importance" id="importance-option-2" value="2">
+                                重要
+                            </label>
+                        </li>
+                        <li>
+                            <label for="importance-option-3">
+                                <input type="radio" name="importance" id="importance-option-3" value="3">
+                                超重要
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <input type="submit" value="登録">
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
