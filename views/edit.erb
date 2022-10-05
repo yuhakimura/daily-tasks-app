@@ -6,69 +6,152 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/assets/css/reset.css">
   <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/new_and_edit.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" href="/assets/img/la4_original_icon.ico">
   <title>今日はこれだけ！</title>
 </head>
 
 <body>
-
-<div>
-    <form action="/tasks/<%= @task.id %>" method="post">
-        <input type="text" name="title" placeholder="タイトル"
-                value="<%= CGI.escapeHTML(@task.title) %>"><br>
-        <input type="date" name="date_start" placeholder="開始日を入力"
-                value="<%= @task.date_start %>"><br>
-        <input type="date" name="date_end" placeholder="終了日を入力"
-                value="<%= @task.date_end %>"><br>
-        <input type="text" name="quantity" placeholder="タスクの総量（数字）"
-                value="<%= @task.quantity %>">
-        <input type="text" name="unit" placeholder="単位"
-                value="<%= @task.unit %>"><br>
-        <input type="radio" name="color" value="1"
-            <% if @task.color == 1 %>
-                checked
-            <% end %>
-        >ピンク
-        <input type="radio" name="color" value="2"
-            <% if @task.color == 2 %>
-                checked
-            <% end %>
-        >オレンジ
-        <input type="radio" name="color" value="3"
-            <% if @task.color == 3 %>
-                checked
-            <% end %>
-        >黄色
-        <input type="radio" name="color" value="4"
-            <% if @task.color == 1 %>
-                checked
-            <% end %>
-        >黄緑
-        <input type="radio" name="color" value="5"
-            <% if @task.color == 5 %>
-                checked
-            <% end %>
-        >水色<br>
-        <input type="radio" name="importance" value="1"
-            <% if @task.importance == 1 %>
-                checked
-            <% end %>
-        >普通
-        <input type="radio" name="importance" value="2"
-            <% if @task.importance == 2 %>
-                checked
-            <% end %>
-        >重要
-        <input type="radio" name="importance" value="3"
-            <% if @task.importance == 3 %>
-                checked
-            <% end %>
-        >超重要<br>
-        <input type="submit" value="登録">
-    </form>
-</div>
-
+    <!--ヘッダー部-->
+    <header class="header">
+      <ul class="nav">
+        <li class="nav-content">編集</li>
+        <li class="nav-content"><a href="/signout">ログアウト</a></li>
+      </ul>
+    </header>
+    
+    <div class="container">
+        <div class="forms">
+            <form action="/tasks/<%= @task.id %>" method="post">
+                <div class="forms-input">
+                    <div class="forms-block">
+                        <p class="form-head">タイトル</p>
+                        <input type="text" name="title" placeholder="タイトル"
+                        value="<%= CGI.escapeHTML(@task.title) %>" class="m-form-text">
+                    </div>
+                    <div class="form-block">
+                        <p class="form-head">タスクの期間</p>
+                        <div class="dates">
+                            <div class="date-start">
+                                <label class="date-select">
+                                    <input type="date" name="date_start" placeholder="開始日を入力"
+                                            value="<%= @task.date_start %>">
+                                </label>
+                            </div>
+                            <p class="date-between">〜</p>
+                            <div class="date-end">
+                                <label class="date-select">
+                                    <input type="date" name="date_end" placeholder="終了日を入力"
+                                            value="<%= @task.date_end %>">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-block">
+                        <p class="form-head">タスクの量</p>
+                        <div class="quantity">
+                            <input type="text" name="quantity" placeholder="タスクの総量（数字）"
+                                    value="<%= @task.quantity %>" class="m-form-text quantity-number">
+                            <!--<input type="text" name="unit" placeholder="単位"-->
+                            <!--        value="<%= @task.unit %>" class="quantity-unit">-->
+                            <select name="unit" class="quantity-unit" required>
+                                <option value="">単位を選択</option>
+                                <option value="ページ"
+                                    <% if @task.unit == "ページ" %>
+                                        selected
+                                    <% end %>
+                                >ページ</option>
+                                <option value="語"
+                                    <% if @task.unit == "語" %>
+                                        selected
+                                    <% end %>
+                                >語</option>
+                                <option value="回"
+                                <% if @task.unit == "回" %>
+                                    selected
+                                <% end %>
+                                >回</option>
+                                <option value="章"
+                                <% if @task.unit == "章" %>
+                                    selected
+                                <% end %>
+                                >章</option>
+                                <option value="単元"
+                                <% if @task.unit == "単元" %>
+                                    selected
+                                <% end %>
+                                >単元</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="forms-block">
+                        <p class="form-head">色</p>
+                        <div class="options color">
+                            <input type="radio" name="color" id="color-option-1" value="1"
+                                <% if @task.color == 1 %>
+                                    checked
+                                <% end %>
+                            >
+                                <label for="color-option-1" class="color-option-1" style="width: 20%;">ピンク</label>
+                            <input type="radio" name="color" id="color-option-2" value="2"
+                                <% if @task.color == 2 %>
+                                    checked
+                                <% end %>
+                            >
+                                <label for="color-option-2" class="color-option-2" style="width: 20%;">オレンジ</label>
+                            <input type="radio" name="color" id="color-option-3" value="3"
+                                <% if @task.color == 3 %>
+                                    checked
+                                <% end %>
+                            >
+                                <label for="color-option-3" class="color-option-3" style="width: 20%;">黄色</label>
+                            <input type="radio" name="color" id="color-option-4" value="4"
+                                <% if @task.color == 1 %>
+                                    checked
+                                <% end %>
+                            >
+                                <label for="color-option-4" class="color-option-4" style="width: 20%">黄緑</label>
+                            <input type="radio" name="color" id="color-option-5" value="5"
+                                <% if @task.color == 5 %>
+                                    checked
+                                <% end %>
+                            >
+                                <label for="color-option-5" class="color-option-5" style="width: 20%">水色</label>
+                        </div>
+                    </div>
+                    <div class="forms-block">
+                        <p class="form-head">重要度</p>
+                        <div class="options importance">
+                            <input type="radio" name="importance" id="importance-option-1" class="importance-option-1" value="1"
+                                <% if @task.importance == 1 %>
+                                    checked
+                                <% end %>
+                            >
+                                <label for="importance-option-1" style="width: 33%;">普通</label>
+                            <input type="radio" name="importance" id="importance-option-2" class="importance-option-2" value="2"
+                                <% if @task.importance == 2 %>
+                                    checked
+                                <% end %>
+                            >
+                                <label for="importance-option-2" style="width: 33%;">重要</label>
+                            <input type="radio" name="importance" id="importance-option-3" class="importance-option-3" value="3"
+                                <% if @task.importance == 3 %>
+                                    checked
+                                <% end %>
+                            >
+                                <label for="importance-option-3" style="width: 33%;">超重要</label>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="登録" class="m-form-submit-button">
+            </form>
+            <a class="task-delete" href="/tasks/<%= @task.id %>/delete">タスクを削除</a>
+            <a class="cancel" href="/">キャンセル</a>
+            <!--タスクの削除-->
+        </div>
+    </div>
 </body>
 </html>

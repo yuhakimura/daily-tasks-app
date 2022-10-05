@@ -18,6 +18,7 @@
         headerToolbar: {
           left: 'prev,next today',
           center: 'title',
+          right: ''
         },
         locale: 'ja',
         initialDate: '2022-10-01',
@@ -31,6 +32,7 @@
               title: '<%= task.title %> / 1日の分量：<%= task.splited_task %><%= task.unit %>',
               start: '<%= task.date_start %>',
               end: '<%= task.date_end %>',
+              url: '/tasks/<%= task.id %>/edit',
               <% if task.color == 1 %>
                 color: '#f970e0'
               <% elsif task.color == 2 %>
@@ -80,13 +82,6 @@
       </div>
       
       <div class="table-all">
-        <!--<div class="table-head">-->
-        <!--  <p class="table-head-title">タイトル</p>-->
-        <!--  <p class="table-head-weight">1日の分量</p>-->
-        <!--  <p class="table-head-importance">重要度</p>-->
-        <!--  <p class="table-head-edit">編集</p>-->
-        <!--  <p class="table-head-delete">削除</p>-->
-        <!--</div>-->
         <div class="table-content-all">
           <% @tasks.each do |task| %>
             <% if (task.date_start..task.date_end).include? Date.today %>
