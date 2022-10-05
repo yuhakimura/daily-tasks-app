@@ -106,12 +106,10 @@
                 <p class="table-content-title"><%=CGI.escapeHTML(task.title).to_s %></p>
                 <p class="table-content-weight"><%= task.splited_task %><%= task.unit %></p>
                 <p class="table-content-importance">
-                  <% if task.importance == 1 %>
+                  <% if task.importance == 2 %>
                     <i class="fa-solid fa-exclamation"></i>
-                  <% elsif task.importance == 2 %>
+                  <% elsif task.importance == 3 %>
                     <i class="fa-solid fa-exclamation"></i><i class="fa-solid fa-exclamation"></i>
-                  <% else %>
-                    <i class="fa-solid fa-exclamation"></i><i class="fa-solid fa-exclamation"></i><i class="fa-solid fa-exclamation"></i>
                   <% end %>
                 </p>
                 <a href="/tasks/<%= task.id %>/edit" class="table-content-edit"><i class="fa-solid fa-pen"></i></a>

@@ -30,44 +30,54 @@
                 <div class="forms-input">
                     <p class="form-head">タイトル</p>
                     <input type="text" name="title" placeholder="タイトル" class="m-form-text"><br>
-                    <p class="form-head">タスクの開始日</p>
-                    <input type="date" name="date_start" placeholder="開始日を入力"><br>
-                    <p class="form-head">タスクの終了日</p>
-                    <input type="date" name="date_end" placeholder="終了日を入力"><br>
+                    <p class="form-head">タスクの期間</p>
+                    <div class="dates">
+                        <div class="date-start">
+                            <label class="date-select">
+                                <input type="date" name="date_start" placeholder="開始日を入力">
+                            </label>
+                        </div>
+                        <p class="date-between">〜</p>
+                        <div class="date-end">
+                            <label class="date-select">
+                                <input type="date" name="date_end" placeholder="終了日を入力">
+                            </label>
+                        </div>
+                    </div>
                     <p class="form-head">タスクの量</p>
-                    <input type="text" name="quantity" placeholder="タスクの総量（数字）" class="m-form-text">
-                    <input type="text" name="unit" placeholder="単位" class="m-form-text"><br>
+                    <div class="quantity">
+                        <input type="text" name="quantity" placeholder="タスクの総量（数字）" class="m-form-text quantity-number">
+                        <!--<input type="text" name="unit" placeholder="単位" class="m-form-text quantity-unit">-->
+                        <select name="unit" class="quantity-unit" required>
+                            <option value="">単位を選択</option>
+                            <option value="ページ" selected>ページ</option>
+                            <option value="語">語</option>
+                            <option value="回">回</option>
+                            <option value="章">章</option>
+                            <option value="単元">単元</option>
+                        </select>
+                    </div>
                     <p class="form-head">色</p>
                     <ul style="display: flex; list-style: none;">
-                        <li>
-                            <label for="color-option-1">
-                                <input type="radio" name="color" id="color-option-1" value="1">
-                                ピンク
-                            </label>
+                        <li class="radio">
+                            <input type="radio" name="color" id="color-option-1" value="1">
+                            <label for="color-option-1">ピンク </label>
                         </li>
-                        <li>
-                            <label for="color-option-2">
-                                <input type="radio" name="color" id="color-option-2" value="2">
-                                オレンジ
-                            </label>
+                        <li class="radio">
+                            <input type="radio" name="color" id="color-option-2" value="2">
+                            <label for="color-option-2">オレンジ</label>
                         </li>
-                        <li>
-                            <label for="color-option-3">
-                                <input type="radio" name="color" id="color-option-3" value="3">
-                                黄色
-                            </label>
+                        <li class="radio">
+                            <input type="radio" name="color" id="color-option-3" value="3">
+                            <label for="color-option-3">黄色</label>
                         </li>
-                        <li>
-                            <label for="color-option-4">
-                                <input type="radio" name="color" id="color-option-4" value="4">
-                                黄緑
-                            </label>
+                        <li class="radio">
+                            <input type="radio" name="color" id="color-option-4" value="4">
+                            <label for="color-option-4">黄緑</label>
                         </li>
-                        <li>
-                            <label for="color-option-5">
-                                <input type="radio" name="color" id="color-option-5" value="5">
-                                水色
-                            </label>
+                        <li class="radio">
+                            <input type="radio" name="color" id="color-option-5" value="5">
+                            <label for="color-option-5">水色 </label>
                         </li>
                     </ul>
                     <p class="form-head">重要度</p>
@@ -92,8 +102,9 @@
                         </li>
                     </ul>
                 </div>
-                <input type="submit" value="登録">
+                <input type="submit" value="登録" class="m-form-submit-button">
             </form>
+            <a class="cancel" href="/">キャンセル</a>
         </div>
     </div>
 

@@ -42,10 +42,11 @@
     text-align: left;
 }
 
-.forms p{
+.form-head{
     text-align: left;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 15px;
+    color: #333;
 }
 
 .m-form-text {
@@ -69,6 +70,87 @@
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
+
+/*日付選択*/
+.dates{
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-start{
+    width: 45%;
+}
+
+.date-between{
+    width: 5%;
+    line-height: 1em;
+    font-weight: bold;
+}
+
+.date-end{
+    width: 45%;
+}
+
+.date-select {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 2.4em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+input[type="date"] {
+  position: relative;
+  padding: 0 10px;
+  width: 130px;
+  height: 2.4em;
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #ccc;
+  line-height: 36px;
+}
+
+
+/*量と単位*/
+
+.quantity{
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantity-number{
+    width: 60%;
+}
+
+.quantity-unit{
+    width: 35%;
+}
+
+select::-ms-expand {
+	display: none; /*--IEでデフォルトの矢印を消します--*/
+}
+
+select {
+	/*margin: 1em 0;*/
+	padding: 0 16px;
+	font-size: 14px;
+	border-radius: 4px;
+	border: solid 1px #ccc;
+	background-color: #fff;
+	color: #333;
+	line-height: 32px;
+	background-image: url(../img/form-arrow.png);
+	background-repeat: no-repeat;
+	background-size: 9px 5px;
+    background-position: right 20px center;
+}
+
+/*ラジオボタン*/
+
 
 /*submitボタン*/
 .m-form-submit-button {
@@ -96,6 +178,16 @@
 
 .m-form-submit-button:focus {
     outline: 0;
-    background-color: #000;
+    filter: brightness(60%);
     border: 2px solid rgb(33, 150, 243);
+}
+
+.cancel{
+    display: inline-block;
+    color: #aaa;
+    margin-top: 15px;
+}
+
+.cancel:hover{
+    color: #444;
 }
