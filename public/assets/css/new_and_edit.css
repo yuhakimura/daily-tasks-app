@@ -151,6 +151,76 @@ select {
 
 /*ラジオボタン*/
 
+.options{
+    display: flex;
+    justify-content: center;
+}
+.options input{
+    display: none;
+}
+
+.options label{
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    padding: 12px 5px;
+    border-right: 1px solid #fff;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    line-height: 1;
+    transition: .2s;
+}
+
+.options label:first-of-type{
+    border-radius: 4px 0 0 4px;
+}
+
+.options label:last-of-type{
+    border-right: 0px;
+    border-radius: 0 4px 4px 0;
+}
+
+.color input[type="radio"]:checked + label {
+    border: solid 4px #fff;
+}
+
+.color-option-1{
+    background-color: #f970e0;
+}
+
+.color-option-2{
+    background-color: #f7a348;
+}
+
+.color-option-3{
+    background-color: #ddd937;
+}
+
+.color-option-4{
+    background-color: #73f973;
+}
+
+.color-option-5{
+    background-color: #47cbea;
+}
+
+.importance label{
+    background-color: #bbb;
+}
+
+.importance-option-1:checked + label {
+    background-color: #ef9aaa;
+}
+
+.importance-option-2:checked + label {
+    background-color: #ed5f7a;
+}
+
+.importance-option-3:checked + label {
+    background-color: #f7415b;
+}
+
 
 /*submitボタン*/
 .m-form-submit-button {
@@ -158,9 +228,8 @@ select {
     width: 25%;
     min-width: 200px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 70px;
     padding: 8px;
-    border: none;
     border-radius: 4px;
     background-color: #84b5cf;
     color: #fff;
