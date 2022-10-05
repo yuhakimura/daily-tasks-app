@@ -55,8 +55,6 @@
                         <div class="quantity">
                             <input type="text" name="quantity" placeholder="タスクの総量（数字）"
                                     value="<%= @task.quantity %>" class="m-form-text quantity-number">
-                            <!--<input type="text" name="unit" placeholder="単位"-->
-                            <!--        value="<%= @task.unit %>" class="quantity-unit">-->
                             <select name="unit" class="quantity-unit" required>
                                 <option value="">単位を選択</option>
                                 <option value="ページ"
@@ -150,7 +148,6 @@
             </form>
             <a class="task-delete" href="/tasks/<%= @task.id %>/delete">タスクを削除</a>
             <a class="cancel" href="/">キャンセル</a>
-            <!--タスクの削除-->
         </div>
     </div>
 </body>
