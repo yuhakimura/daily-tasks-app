@@ -37,17 +37,18 @@ post '/signin' do
 end
 
 post '/signup' do
-    if params[:password] == params[:password_confirmation]
+    if params[:password] != params[:password_confirmation]
+        redirect '/signup'
+    else
         user = User.create(mail: params[:mail], name: params[:name], password: params[:password],
                             password_confirmation: params[:password_confirmation])
-    else
-        redirect '/signup'
     end
-    
     if user.persisted?
         session[:user] = user.id
+        redirect '/'
+    else
+        erb :sign_up
     end
-    redirect '/'
 end
 
 get '/signout' do

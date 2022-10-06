@@ -140,3 +140,14 @@ h1{
     background-color: #000;
     border: 2px solid rgb(33, 150, 243);
 }
+
+/*前の画面に戻るリンク*/
+.return-to-top {
+    display: block;
+    color: #aaa;
+    margin-top: 15px;
+}
+
+.return-to-top:hover {
+    color: #444;
+}
