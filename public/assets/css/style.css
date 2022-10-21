@@ -58,13 +58,13 @@ main{
 /*一覧に関するcss*/
 
 .tables{
-    width: 30%;
     background-color: #f8f9ea;
     padding: 10px;
     border-radius: 8px;
     margin-top: 20px;
     margin-bottom: 50px;
     color: #333333;
+    width: 30%;
 }
 
 .tasks-title{
@@ -163,6 +163,27 @@ main{
     padding: 1px 10px 1px 0px;
     color: #e5e5e5;
 }
+
+/*ボタンに関するcss*/
+/*.button-tasks{*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    color: #84b5cf;*/
+/*    line-height: 50px;*/
+/*    text-align: center;*/
+/*    font-size: 25px;*/
+/*}*/
+
+/*.taks-button-content{*/
+/*    line-height: 50px;*/
+/*    height: 50px;*/
+/*}*/
+
+/*.task-button-span{*/
+/*    font-size: 15px;*/
+/*    line-height: 50px;*/
+/*    height: 50px;*/
+/*}*/
 
 /*新規作成ボタンに関するcss*/
 

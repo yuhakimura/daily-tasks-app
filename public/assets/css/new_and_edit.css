@@ -276,7 +276,6 @@ select {
 .task-delete:focus{
     outline: 0;
     filter: brightness(80%);
-    border: 2px solid #682a35;
 }
 
 .cancel{

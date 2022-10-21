@@ -74,47 +74,59 @@
     </div>
       
     <!--ここに一覧表示作る-->
-    <div class="tables">
-      
-      <div class="tasks-title">
-        <h3 class="tasks-title-text"><%= Date.today.strftime("%Y年 %m月 %d日") %>のタスク</h3>
-        <div class="line"></div>
-      </div>
-      
-      <div class="table-all">
-        <div class="table-content-all">
-          <% @tasks.each do |task| %>
-            <% if (task.date_start..task.date_end).include? Date.today %>
-              <div class="table-content"
-                    style="
-                          <% if task.color == 1 %>
-                            border-color: #f970e0;
-                          <% elsif task.color == 2 %>
-                            border-color: #f7a348;
-                          <% elsif task.color == 3 %>
-                            border-color: #ddd937;
-                          <% elsif task.color == 4 %>
-                            border-color: #73f973;
-                          <% else %>
-                            border-color: #47cbea;
-                          <% end %>">
-                <p class="table-content-title"><%=CGI.escapeHTML(task.title).to_s %></p>
-                <p class="table-content-weight"><%= task.splited_task %><%= task.unit %></p>
-                <p class="table-content-importance">
-                  <% if task.importance == 2 %>
-                    <i class="fa-solid fa-exclamation"></i>
-                  <% elsif task.importance == 3 %>
-                    <i class="fa-solid fa-exclamation"></i><i class="fa-solid fa-exclamation"></i>
-                  <% end %>
-                </p>
-                <a href="/tasks/<%= task.id %>/edit" class="table-content-edit"><i class="fa-solid fa-pen"></i></a>
-                <a href="/tasks/<%= task.id %>/delete" class="table-content-delete"><i class="fa-solid fa-trash"></i></a>
-              </div>
+      <div class="tables">
+        
+        <div class="tasks-title">
+          <h3 class="tasks-title-text"><%= Date.today.strftime("%Y年 %m月 %d日") %>のタスク</h3>
+          <div class="line"></div>
+        </div>
+        
+        <div class="table-all">
+          <div class="table-content-all">
+            <% @tasks.each do |task| %>
+              <% if (task.date_start..task.date_end).include? Date.today %>
+                <div class="table-content"
+                      style="
+                            <% if task.color == 1 %>
+                              border-color: #f970e0;
+                            <% elsif task.color == 2 %>
+                              border-color: #f7a348;
+                            <% elsif task.color == 3 %>
+                              border-color: #ddd937;
+                            <% elsif task.color == 4 %>
+                              border-color: #73f973;
+                            <% else %>
+                              border-color: #47cbea;
+                            <% end %>">
+                  <p class="table-content-title"><%=CGI.escapeHTML(task.title).to_s %></p>
+                  <p class="table-content-weight"><%= task.splited_task %><%= task.unit %></p>
+                  <p class="table-content-importance">
+                    <% if task.importance == 2 %>
+                      <i class="fa-solid fa-exclamation"></i>
+                    <% elsif task.importance == 3 %>
+                      <i class="fa-solid fa-exclamation"></i><i class="fa-solid fa-exclamation"></i>
+                    <% end %>
+                  </p>
+                  <a href="/tasks/<%= task.id %>/edit" class="table-content-edit"><i class="fa-solid fa-pen"></i></a>
+                  <a href="/tasks/<%= task.id %>/delete" class="table-content-delete"><i class="fa-solid fa-trash"></i></a>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
+      
+      <!--自分のタスク一覧表示ボタン-->
+      <!--<div class="buttons">-->
+      <!--  <div class="button-tasks">-->
+      <!--    <a href="/tasks-all" class="task-button-content">-->
+      <!--      <span class="task-button-span"><i class="fa-solid fa-chevron-left"></span></i><i class="fa-solid fa-circle-user"></i>-->
+      <!--    </a>-->
+      <!--  </div>-->
+      <!--</div>-->
+    
+    
+    
   </main>
   
   <!--新規作成ボタン-->
